@@ -2,6 +2,7 @@ import ModalCreateUser from "./ModalCreateUser";
 import './ManageUser.scss';
 import { FiPlusCircle } from "react-icons/fi";
 import { useState } from 'react';
+import TableUser from "./TableUser";
 
 const ManageUser = (props) => {
 
@@ -16,7 +17,7 @@ const ManageUser = (props) => {
                     <button className="btn btn-primary" onClick={() => setShowModalCreateUser(true)}> <FiPlusCircle /> Add new users</button>
                 </div>
                 <div className="table-users-container">
-                    table users
+                    <TableUser />
                 </div>
                 <ModalCreateUser show={showModalCreateUser} setShow={setShowModalCreateUser}></ModalCreateUser>
             </div>
