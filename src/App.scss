@@ -57,12 +57,13 @@ body {
   }
 
   .homepage-container {
+    display: flex;
 
     .homepage-content {
       padding: 100px;
       width: 50%;
-      position: relative;
-      display: flex;
+      // position: relative;
+      // display: flex;
       flex-direction: column;
       gap: 30px;
 
@@ -86,7 +87,7 @@ body {
 }
 
 video {
-  position: fixed;
+  // position: absolute;
   bottom: 0;
   width: 100w;
 }

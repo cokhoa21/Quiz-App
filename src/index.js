@@ -12,6 +12,9 @@ import {
 import Admin from './components/Admin/Admin';
 import User from './components/User/User';
 import HomePage from './components/Home/HomePage';
+import ManageUser from './components/Admin/Content/ManageUser';
+import DashBoard from './components/Admin/Content/DashBoard';
+import { GrDashboard } from 'react-icons/gr';
 
 const router = createBrowserRouter([
   {
@@ -25,12 +28,21 @@ const router = createBrowserRouter([
         path: "users",
         element: <User />,
       },
-      {
-        path: "admin",
-        element: <Admin />,
-      },
     ],
   },
+  {
+    path: "admins",
+    element: <Admin />,
+    children: [
+      {
+        index: true, element: <DashBoard />
+      },
+      {
+        path: "manage-users",
+        element: <ManageUser />
+      }
+    ]
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

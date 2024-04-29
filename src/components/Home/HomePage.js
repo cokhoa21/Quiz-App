@@ -2,13 +2,22 @@ import videoHomepage from '../../assets/video-homepage.mp4';
 const HomePage = (props) => {
     return (
         <div className="homepage-container">
-            <video width="600px" height="600px" autoPlay muted loop>
+            <div>
+                <video width="600px" height="600px" autoPlay muted loop>
+                    <source
+                        src={videoHomepage}
+                        type="video/mp4"
+                    >
+                    </source>
+                </video>
+            </div>
+            {/* <video width="600px" height="600px" autoPlay muted loop>
                 <source
                     src={videoHomepage}
                     type="video/mp4"
                 >
                 </source>
-            </video>
+            </video> */}
             <div className='homepage-content'>
                 <div className='title-1'>Make forms worth filling out</div>
                 <div className='title-2'>Get more data—like signups, feedback, and anything else—with forms designed to be refreshingly different.</div>
