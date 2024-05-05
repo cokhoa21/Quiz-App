@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux';
-import store from './redux/store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   createBrowserRouter,
@@ -14,7 +12,8 @@ import User from './components/User/User';
 import HomePage from './components/Home/HomePage';
 import ManageUser from './components/Admin/Content/ManageUser';
 import DashBoard from './components/Admin/Content/DashBoard';
-import { GrDashboard } from 'react-icons/gr';
+import Login from './components/Auth/Login';
+import Register from './components/Auth/Register';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +41,14 @@ const router = createBrowserRouter([
         element: <ManageUser />
       }
     ]
+  },
+  {
+    path: "/login",
+    element: <Login />
+  },
+  {
+    path: '/register',
+    element: <Register />
   }
 ]);
 
