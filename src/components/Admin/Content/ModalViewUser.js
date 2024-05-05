@@ -6,7 +6,7 @@ import { FiPlusCircle } from "react-icons/fi";
 import _ from 'lodash';
 
 const ModalViewUser = (props) => {
-    const { show, setShow, dataView, resetDataUpdate } = props;
+    const { show, setShow, dataView, resetDataUpdate, currentPage, setCurrentPage } = props;
 
     const handleClose = () => {
         setShow(false);
