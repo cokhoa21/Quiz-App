@@ -14,9 +14,11 @@ import ManageUser from './components/Admin/Content/ManageUser';
 import DashBoard from './components/Admin/Content/DashBoard';
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
-import store from './redux/store';
+import { store, persistor } from './redux/store';
 import { Provider } from 'react-redux';
 import 'nprogress/nprogress.css';
+import { PersistGate } from 'redux-persist/integration/react'
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -57,7 +59,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <PersistGate loading={null} persistor={persistor}>
+        <RouterProvider router={router} />
+      </PersistGate>
     </Provider>
   </React.StrictMode>
 );
