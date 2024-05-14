@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { postLogin } from '../../services/apiService';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useDispatch } from 'react-redux';
+import { doLogin } from '../../redux/action/userAction';
 
 const Login = (props) => {
     const [email, setEmail] = useState("");
@@ -15,6 +17,10 @@ const Login = (props) => {
                 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             );
     };
+    const navigate = useNavigate();
+
+    const dispatch = useDispatch();
+
     const handleLogin = async () => {
         //validate 
 
@@ -35,6 +41,7 @@ const Login = (props) => {
         let data = await postLogin(email, password);
         console.log(data.EM);
         if (data && data.EC === 0) {
+            dispatch(doLogin(data));
             toast.success(data.EM);
             navigate('/')
         }
@@ -43,7 +50,6 @@ const Login = (props) => {
             toast.error(data.EM);
         }
     }
-    const navigate = useNavigate();
 
     return (
         <div className="login-container">

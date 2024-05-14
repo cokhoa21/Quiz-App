@@ -14,6 +14,8 @@ import ManageUser from './components/Admin/Content/ManageUser';
 import DashBoard from './components/Admin/Content/DashBoard';
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
+import store from './redux/store';
+import { Provider } from 'react-redux';
 
 const router = createBrowserRouter([
   {
@@ -54,7 +56,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 

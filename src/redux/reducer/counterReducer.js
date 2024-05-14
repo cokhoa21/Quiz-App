@@ -1,4 +1,3 @@
-
 import { INCREMENT, DECREMENT } from '../action/counterAction';
 const INITIAL_STATE = {
     count: 0,
